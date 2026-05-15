@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   increaseQuantity,
@@ -9,16 +9,22 @@ import {
 function CartItem({ item }) {
   const dispatch = useDispatch();
 
+  // total cost per item
+  const itemTotal = item.price * item.quantity;
+
   return (
     <div className="cart-item">
       <img src={item.image} alt={item.name} />
 
-      <div>
+      <div className="cart-details">
         <h3>{item.name}</h3>
 
         <p>Unit Price: ${item.price}</p>
 
-        <p>Total: ${item.price * item.quantity}</p>
+        {/* Required: total per item */}
+        <p>
+          Total: <strong>${itemTotal.toFixed(2)}</strong>
+        </p>
 
         <div className="controls">
           <button
