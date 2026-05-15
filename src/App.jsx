@@ -1,8 +1,29 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
-import LandingPage from "./pages/LandingPage";
 import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
+
+function LandingPage() {
+  return (
+    <div className="landing-page">
+      <div className="overlay">
+        <h1>Welcome to Paradise Nursery</h1>
+
+        <p>
+          Paradise Nursery offers a beautiful collection of indoor plants
+          that bring freshness, peace, and natural beauty into your home.
+          Discover high-quality plants carefully selected for every space.
+        </p>
+
+        <Link to="/products">
+          <button className="get-started-btn">
+            Get Started
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
